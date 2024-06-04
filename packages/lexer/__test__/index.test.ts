@@ -1,5 +1,5 @@
-import Tokenizer from '../lib/Tokenizer'
-import config from '../lib/config'
+import Tokenizer from '../src/Tokenizer'
+import config from '../src/config'
 
 const testCases: { code: string; description: string }[] = [
   {
