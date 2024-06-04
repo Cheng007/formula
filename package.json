@@ -1,0 +1,27 @@
+{
+  "name": "formula",
+  "version": "1.0.0",
+  "description": "Formula editor with custom functions and special data types",
+  "main": "index.js",
+  "workspaces": [
+    "packages/lexer",
+    "packages/parser"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "formula editor",
+    "custom functions",
+    "special data types"
+  ],
+  "author": "Cheng007 <565460621@qq.com> (https://github.com/Cheng007)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cheng007/formula.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Cheng007/formula/issues"
+  },
+  "license": "ISC"
+}

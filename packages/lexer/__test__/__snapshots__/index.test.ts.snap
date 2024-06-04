@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Token with config it should be comment 1`] = `
+[
+  {
+    "range": {
+      "end": {
+        "column": 16,
+        "line": 2,
+      },
+      "start": {
+        "column": 7,
+        "line": 2,
+      },
+    },
+    "type": "BLOCK_COMMENT",
+    "value": "/* 行内注释 */",
+  },
+  {
+    "range": {
+      "end": {
+        "column": 8,
+        "line": 5,
+      },
+      "start": {
+        "column": 7,
+        "line": 3,
+      },
+    },
+    "type": "BLOCK_COMMENT",
+    "value": "/*
+      块级注释
+      */",
+  },
+]
+`;
+
+exports[`Token with config it should be identifier 1`] = `
+[
+  {
+    "range": {
+      "end": {
+        "column": 3,
+        "line": 1,
+      },
+      "start": {
+        "column": 1,
+        "line": 1,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "abc",
+  },
+]
+`;
+
+exports[`Token with config it should be number 1`] = `
+[
+  {
+    "range": {
+      "end": {
+        "column": 7,
+        "line": 1,
+      },
+      "start": {
+        "column": 1,
+        "line": 1,
+      },
+    },
+    "type": "NUMBER",
+    "value": "1234.45",
+  },
+]
+`;
+
+exports[`Token with config it should be string 1`] = `
+[
+  {
+    "range": {
+      "end": {
+        "column": 5,
+        "line": 1,
+      },
+      "start": {
+        "column": 1,
+        "line": 1,
+      },
+    },
+    "type": "STRING",
+    "value": "'abc'",
+  },
+]
+`;
