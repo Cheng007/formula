@@ -1,11 +1,13 @@
-import { NEW_LINE } from "./config"
-import type { IPosition } from "./types"
-
+import { NEW_LINE } from './config'
+import type { IPosition } from './types'
 
 export default class Position {
   #line = 1
   #column = 0
-  #prevPosition: IPosition | null = null
+  #prevPosition: IPosition = {
+    line: 1,
+    column: 0,
+  }
 
   move(char: string) {
     if (NEW_LINE.includes(char)) {
@@ -19,14 +21,14 @@ export default class Position {
   getCurrentPosition(): IPosition {
     return {
       line: this.#line,
-      column: this.#column
+      column: this.#column,
     }
   }
 
   markPosition() {
     this.#prevPosition = {
       line: this.#line,
-      column: this.#column
+      column: this.#column,
     }
   }
 

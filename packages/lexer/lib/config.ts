@@ -1,4 +1,4 @@
-import type { IConfig } from "./types";
+import type { IConfig } from './types'
 import { TOKEN_TYPE, State } from './types'
 
 export const SPACE = ' '
@@ -12,85 +12,85 @@ const config: IConfig = {
       transition: [
         {
           state: State.NUMBER,
-          checker: /[0-9]/
+          checker: /[0-9]/,
         },
         {
           state: State.START_STRING,
-          checker: "'"
+          checker: "'",
         },
         {
           state: State.IDENTIFIER,
-          checker: /[a-zA-Z]/
+          checker: /[a-zA-Z]/,
         },
         {
           state: State.LEFT_PAREN,
-          checker: '('
+          checker: '(',
         },
         {
           state: State.RIGHT_PAREN,
-          checker: ')'
+          checker: ')',
         },
         {
           state: State.LEFT_SQUARE_BRACKET,
-          checker: '['
+          checker: '[',
         },
         {
           state: State.RIGHT_SQUARE_BRACKET,
-          checker: ']'
+          checker: ']',
         },
         {
           state: State.LEFT_CURLY_BRACE,
-          checker: '{'
+          checker: '{',
         },
         {
           state: State.RIGHT_CURLY_BRACE,
-          checker: '}'
+          checker: '}',
         },
         {
           state: State.SEMI_COLON,
-          checker: ';'
+          checker: ';',
         },
         {
           state: State.COMMA,
-          checker: ','
+          checker: ',',
         },
         {
           state: State.DOT,
-          checker: '.'
+          checker: '.',
         },
         {
           state: State.COLON,
-          checker: ':'
+          checker: ':',
         },
         {
           state: State.PLUS,
-          checker: '+'
+          checker: '+',
         },
         {
           state: State.MINUS,
-          checker: '-'
+          checker: '-',
         },
         {
           state: State.MULTIPLY,
-          checker: '*'
+          checker: '*',
         },
         {
           state: State.DIVIDE,
-          checker: '/'
+          checker: '/',
         },
         {
           state: State.ASSIGN,
-          checker: '='
+          checker: '=',
         },
         {
           state: State.LESS_THAN,
-          checker: '<'
+          checker: '<',
         },
         {
           state: State.GREATER_THAN,
-          checker: '>'
+          checker: '>',
         },
-      ]
+      ],
     },
     [State.NUMBER]: {
       isEndable: true,
@@ -98,22 +98,22 @@ const config: IConfig = {
       transition: [
         {
           state: State.NUMBER,
-          checker: /[0-9\.]/
-        }
-      ]
+          checker: /[0-9.]/,
+        },
+      ],
     },
     [State.START_STRING]: {
       isEndable: false,
       transition: [
         {
           state: State.START_STRING,
-          checker: /[^']/
+          checker: /[^']/,
         },
         {
           state: State.STRING,
-          checker: "'"
-        }
-      ]
+          checker: "'",
+        },
+      ],
     },
     [State.STRING]: {
       isEndable: true,
@@ -124,9 +124,9 @@ const config: IConfig = {
       transition: [
         {
           state: State.IDENTIFIER,
-          checker: /[a-zA-Z_0-9]/
-        }
-      ]
+          checker: /[a-zA-Z_0-9]/,
+        },
+      ],
     },
     [State.IDENTIFIER]: {
       isEndable: true,
@@ -134,9 +134,9 @@ const config: IConfig = {
       transition: [
         {
           state: State.IDENTIFIER,
-          checker: /[a-zA-Z]/
-        }
-      ]
+          checker: /[a-zA-Z]/,
+        },
+      ],
     },
     [State.LEFT_PAREN]: {
       isEndable: true,
@@ -185,13 +185,13 @@ const config: IConfig = {
       transition: [
         {
           state: State.PLUS_PLUS,
-          checker: '+'
+          checker: '+',
         },
         {
           state: State.PLUS_ASSIGN,
           checker: '=',
-        }
-      ]
+        },
+      ],
     },
     [State.PLUS_PLUS]: {
       isEndable: true,
@@ -203,13 +203,13 @@ const config: IConfig = {
       transition: [
         {
           state: State.MINUS_MINUS,
-          checker: '-'
+          checker: '-',
         },
         {
           state: State.MINUS_ASSIGN,
           checker: '=',
-        }
-      ]
+        },
+      ],
     },
     [State.MINUS_MINUS]: {
       isEndable: true,
@@ -221,9 +221,9 @@ const config: IConfig = {
       transition: [
         {
           state: State.MULTIPLY_ASSIGN,
-          checker: '='
-        }
-      ]
+          checker: '=',
+        },
+      ],
     },
     [State.DIVIDE]: {
       isEndable: true,
@@ -231,17 +231,17 @@ const config: IConfig = {
       transition: [
         {
           state: State.DIVIDE_ASSIGN,
-          checker: '='
+          checker: '=',
         },
         {
           state: State.LINE_COMMENT,
-          checker: '/'
+          checker: '/',
         },
         {
           state: State.START_BLOCK_COMMENT,
-          checker: '*'
-        }
-      ]
+          checker: '*',
+        },
+      ],
     },
     [State.PLUS_ASSIGN]: {
       isEndable: true,
@@ -269,9 +269,9 @@ const config: IConfig = {
       transition: [
         {
           state: State.LESS_EQUAL_THAN,
-          checker: '='
-        }
-      ]
+          checker: '=',
+        },
+      ],
     },
     [State.LESS_EQUAL_THAN]: {
       isEndable: true,
@@ -283,9 +283,9 @@ const config: IConfig = {
       transition: [
         {
           state: State.GREATER_EQUAL_THAN,
-          checker: '='
-        }
-      ]
+          checker: '=',
+        },
+      ],
     },
     [State.GREATER_EQUAL_THAN]: {
       isEndable: true,
@@ -297,9 +297,9 @@ const config: IConfig = {
       transition: [
         {
           state: State.LINE_COMMENT,
-          checker: (char: string) => !NEW_LINE.includes(char)
-        }
-      ]
+          checker: (char: string) => !NEW_LINE.includes(char),
+        },
+      ],
     },
     [State.START_BLOCK_COMMENT]: {
       isEndable: false,
@@ -310,15 +310,15 @@ const config: IConfig = {
         },
         {
           state: State.START_BLOCK_COMMENT,
-          checker: (char, buffer) => /^\/\*/.test(buffer + char)
+          checker: (char, buffer) => /^\/\*/.test(buffer + char),
         },
-      ]
+      ],
     },
     [State.BLOCK_COMMENT]: {
       isEndable: true,
-      tokenType: State.BLOCK_COMMENT
-    }
-  }
+      tokenType: State.BLOCK_COMMENT,
+    },
+  },
 }
 
 export default config

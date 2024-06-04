@@ -1,4 +1,4 @@
-import type { IToken } from "./types";
+import type { IToken } from './types'
 
 export default class TokenBuffer {
   #tokens: IToken[] = []
@@ -10,7 +10,8 @@ export default class TokenBuffer {
 
   read() {
     const currentToken = this.#tokens[this.#index]
-    const nextIndex = this.#index < this.#tokens.length ? ++this.#index : this.#tokens.length
+    const nextIndex =
+      this.#index < this.#tokens.length ? ++this.#index : this.#tokens.length
     this.#index = nextIndex
     return currentToken
   }

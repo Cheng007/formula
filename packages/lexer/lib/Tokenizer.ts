@@ -1,7 +1,14 @@
-import TokenBuffer from "./TokenBuffer";
-import type { IStatesConfig, IStateKey, IConfig, ITokenTypeGenerator, IToken, TOKEN_TYPE } from "./types";
+import TokenBuffer from './TokenBuffer'
+import type {
+  IStatesConfig,
+  IStateKey,
+  IConfig,
+  ITokenTypeGenerator,
+  IToken,
+  TOKEN_TYPE,
+} from './types'
 import Position from './Position'
-import { NEW_LINE, SPACE } from "./config";
+import { NEW_LINE, SPACE } from './config'
 
 export default class Tokenizer {
   #tokenBuffer = new TokenBuffer()
@@ -22,9 +29,8 @@ export default class Tokenizer {
   }
 
   parse(code: string) {
-    for (let i = 0; i < code.length; i++) {
-      const char = code[i]
-      this.consume(char)
+    for (const i of code) {
+      this.consume(i)
     }
     this.end()
 
@@ -59,9 +65,9 @@ export default class Tokenizer {
       type: typeof tokeType === 'function' ? tokeType(this.#buffer) : tokeType,
       value: this.#buffer,
       range: {
-        start: startLocation!,
-        end: endLocation
-      }
+        start: startLocation,
+        end: endLocation,
+      },
     }
     this.#tokenBuffer.write(token)
   }
@@ -73,8 +79,8 @@ export default class Tokenizer {
 
   consume(char: string) {
     if (
-      (char === SPACE || NEW_LINE.includes(char))
-      && this.#state === this.#initialState
+      (char === SPACE || NEW_LINE.includes(char)) &&
+      this.#state === this.#initialState
     ) {
       this.#position.move(char)
       return
@@ -128,13 +134,13 @@ export default class Tokenizer {
     this.#position.move(char)
     // when state start to transfer from initial state to other state, mark current position
     if (
-      this.#state === this.#initialState
-      && targetTransition?.state !== this.#initialState
+      this.#state === this.#initialState &&
+      targetTransition?.state !== this.#initialState
     ) {
       this.#position.markPosition()
     }
 
-    this.#state = targetTransition!.state
+    this.#state = targetTransition.state
     this.#buffer += char
   }
 }

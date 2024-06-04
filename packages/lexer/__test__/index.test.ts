@@ -1,27 +1,18 @@
-import Tokenizer from "../lib/Tokenizer";
-import config from '../lib/config';
+import Tokenizer from '../lib/Tokenizer'
+import config from '../lib/config'
 
-// test for 行注释、块注释
-
-const code = `
-  /* 放大 */fda
-  /*
-  fa
-  sfds*/fdsa
-`
-
-const testCases: Array<{ code: string, description: string }> = [
+const testCases: { code: string; description: string }[] = [
   {
     code: `abc`,
-    description: 'it should be identifier'
+    description: 'it should be identifier',
   },
   {
     code: `'abc'`,
-    description: 'it should be string'
+    description: 'it should be string',
   },
   {
     code: `1234.45`,
-    description: 'it should be number'
+    description: 'it should be number',
   },
   {
     code: `
@@ -30,8 +21,8 @@ const testCases: Array<{ code: string, description: string }> = [
       块级注释
       */
     `,
-    description: 'it should be comment'
-  }
+    description: 'it should be comment',
+  },
 ]
 
 describe('Token with config', () => {

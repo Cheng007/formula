@@ -14,7 +14,7 @@ export enum TOKEN_TYPE {
   LEFT_SQUARE_BRACKET = 'LEFT_SQUARE_BRACKET',
   // 右方扩号 ]
   RIGHT_SQUARE_BRACKET = 'RIGHT_SQUARE_BRACKET',
-  // 左花括号 { 
+  // 左花括号 {
   LEFT_CURLY_BRACE = 'LEFT_CURLY_BRACE',
   // 右花括号 }
   RIGHT_CURLY_BRACE = 'RIGHT_CURLY_BRACE',
@@ -99,7 +99,7 @@ export interface IPositionRange {
 }
 
 export type ITokenTypeGenerator = (value: string) => TOKEN_TYPE
-export type IStateConfig = {
+export interface IStateConfig {
   isEndable: boolean
   tokenType?: TOKEN_TYPE | ITokenTypeGenerator
   transition?: ITransition[]
@@ -111,7 +111,7 @@ interface ITransition {
   state: IStateKey
 }
 
-export type IConfig = {
+export interface IConfig {
   states: IStatesConfig
   initialState: IStateKey
 }
