@@ -23,6 +23,17 @@ const testCases: { code: string; description: string }[] = [
     `,
     description: 'it should be comment',
   },
+  {
+    code: `
+      // test function
+      function test(a, b) {
+        console.log(a)
+        return a + b;
+      }
+      concat(接口.姓, 接口.名)
+    `,
+    description: 'it should be custom code',
+  },
 ]
 
 describe('Token with config', () => {

@@ -20,7 +20,7 @@ const config: IConfig = {
         },
         {
           state: State.IDENTIFIER,
-          checker: /[a-zA-Z]/,
+          checker: /[a-zA-Z\u4e00-\u9fa5]/,
         },
         {
           state: State.LEFT_PAREN,
@@ -124,7 +124,7 @@ const config: IConfig = {
       transition: [
         {
           state: State.IDENTIFIER,
-          checker: /[a-zA-Z_0-9]/,
+          checker: /[a-zA-Z_0-9\u4e00-\u9fa5]/,
         },
       ],
     },
@@ -134,7 +134,7 @@ const config: IConfig = {
       transition: [
         {
           state: State.IDENTIFIER,
-          checker: /[a-zA-Z]/,
+          checker: /[a-zA-Z\u4e00-\u9fa5]/,
         },
       ],
     },
